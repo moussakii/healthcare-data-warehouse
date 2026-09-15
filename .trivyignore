@@ -1,0 +1,3 @@
+# Intentionally empty: the streamlit/generator images no longer install
+# pyspark/delta-spark (see docker/requirements-web.txt), so their bundled
+# Hadoop-ecosystem jar CVEs are no longer present in these scanned images.
