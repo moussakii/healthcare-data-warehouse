@@ -13,7 +13,8 @@ RUN apt-get update && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Patch the base image's system pip/setuptools/wheel (Trivy: setuptools CVE-2024-6345 RCE, etc.)
-RUN pip install --no-cache-dir --upgrade pip "setuptools>=78.1.1" wheel
+RUN pip install --no-cache-dir --upgrade pip "setuptools>=78.1.1" wheel && \
+    find /usr/local/lib/python3.11/ensurepip/_bundled -name "setuptools*.whl" -delete
 
 RUN useradd --create-home appuser
 USER appuser
