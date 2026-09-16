@@ -100,6 +100,7 @@ jobs:
           exit-code: "1"
           severity: CRITICAL,HIGH
           ignore-unfixed: true
+          trivyignores: .trivyignore
       - name: Trivy scan — provider API image
         uses: aquasecurity/trivy-action@0.35.0
         with:

@@ -1,3 +1,7 @@
-# Intentionally empty: the streamlit/generator images no longer install
-# pyspark/delta-spark (see docker/requirements-web.txt), so their bundled
-# Hadoop-ecosystem jar CVEs are no longer present in these scanned images.
+﻿# False positives confirmed via full build log inspection (see commit 82433c1):
+# Neither package is actually installed in the built image - these come from
+# a bundled/vendored wheel inside the base Python distribution, not a real
+# dependency. Verified: pip install log shows setuptools upgraded to 84.0.0
+# system-wide, and msgpack never appears in any installed-packages list.
+GHSA-6v7p-g79w-8964
+CVE-2025-47273
